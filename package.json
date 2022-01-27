@@ -1,0 +1,21 @@
+{
+  "name": "bootcamper",
+  "version": "1.0.0",
+  "description": "code bootcamps website.",
+  "main": "index.js",
+  "scripts": {
+    "start": "node src/index.js",
+    "dev": "nodemon src/index.js"
+  },
+  "author": "Mohamed Ramadan",
+  "license": "ISC",
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "dotenv": "^14.2.0",
+    "express": "^4.17.2",
+    "mongoose": "^6.1.7"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.15"
+  }
+}
