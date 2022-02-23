@@ -1,8 +1,13 @@
 const NodeGeocoder = require("node-geocoder");
+const dotenv = require("dotenv");
+const path = require("path");
+
+// dotenv config
+dotenv.config({ path: path.resolve(__dirname, "../config/config.env") });
 
 const options = {
-  provider: "mapquest",
-  apiKey: "Scq9I3qpH3TbCBt0DllQRBGKCAm4x8ZM",
+  provider: process.env.GEOCODER_PROVIDER,
+  apiKey: process.env.GEOCODER_API_KEY,
   httpAdapter: "https",
   formatter: null,
 };
