@@ -7,6 +7,7 @@ const errorHandler = require("./middleware/errorHandler");
 
 // route files
 const bootcampsRouter = require("./routers/bootcamps");
+const coursesRouter = require("./routers/courses");
 
 // connect to db
 connectDB();
@@ -26,6 +27,7 @@ if (process.env.NODE_ENV === "development") {
 
 // mount routers
 app.use("/api/bootcamps", bootcampsRouter);
+app.use("/api/courses", coursesRouter);
 
 // error handler middleware
 app.use(errorHandler);

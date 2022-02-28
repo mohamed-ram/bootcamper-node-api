@@ -98,6 +98,8 @@ const bootcampSchema = new mongoose.Schema(
   },
   {
     timestamps: true,
+    toJSON: { virtuals: true },
+    toObject: { virtuals: true },
   }
 );
 
@@ -122,6 +124,20 @@ bootcampSchema.pre("save", async function (next) {
     country: loc[0].country,
   };
   next();
+});
+
+// cascade deleting bootcamp
+bootcampSchema.pre("remove", async function (next) {
+  await this.model("Course").deleteMany({ bootcamp: this._id });
+  next();
+});
+
+// reverse populate
+bootcampSchema.virtual("courses", {
+  ref: "Course",
+  localField: "_id",
+  foreignField: "bootcamp",
+  justOne: false,
 });
 
 const Bootcamp = new mongoose.model("Bootcamp", bootcampSchema);
