@@ -95,6 +95,10 @@ const bootcampSchema = new mongoose.Schema(
       type: Boolean,
       default: false,
     },
+    image: {
+      type: String,
+      default: "No image uploaded",
+    },
   },
   {
     timestamps: true,

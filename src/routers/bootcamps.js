@@ -6,6 +6,7 @@ const {
   getBootcamp,
   craeteBootcamp,
   updateBootcamp,
+  uploadBootcampImage,
   deleteBootcamp,
 } = require("../controllers/bootcamps");
 
@@ -22,5 +23,7 @@ router
   .get(getBootcamp)
   .patch(updateBootcamp)
   .delete(deleteBootcamp);
+
+router.route("/:id/photo").patch(uploadBootcampImage);
 
 module.exports = router;

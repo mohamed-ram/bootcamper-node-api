@@ -4,6 +4,7 @@ const dotenv = require("dotenv");
 const logger = require("./middleware/logger");
 const connectDB = require("./db/db");
 const errorHandler = require("./middleware/errorHandler");
+const fileupload = require("express-fileupload");
 
 // route files
 const bootcampsRouter = require("./routers/bootcamps");
@@ -24,6 +25,12 @@ app.use(express.json());
 if (process.env.NODE_ENV === "development") {
   app.use(logger);
 }
+
+// fileupload middleware
+app.use(fileupload());
+
+// set static folder
+app.use(express.static(path.resolve("./public")));
 
 // mount routers
 app.use("/api/bootcamps", bootcampsRouter);
