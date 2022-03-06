@@ -9,6 +9,7 @@ const fileupload = require("express-fileupload");
 // route files
 const bootcampsRouter = require("./routers/bootcamps");
 const coursesRouter = require("./routers/courses");
+const authRouter = require("./routers/auth");
 
 // connect to db
 connectDB();
@@ -35,6 +36,7 @@ app.use(express.static(path.resolve("./public")));
 // mount routers
 app.use("/api/bootcamps", bootcampsRouter);
 app.use("/api/courses", coursesRouter);
+app.use("/api/auth", authRouter);
 
 // error handler middleware
 app.use(errorHandler);
